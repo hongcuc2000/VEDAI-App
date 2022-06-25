@@ -60,7 +60,7 @@
 }
 
 .download{
-	width: 20%;
+	max-width: 30%;
 	margin: 0.5em auto;
     display:block;
 	background:DodgerBlue;

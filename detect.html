@@ -89,13 +89,15 @@
 };
 
    function showResult(event){
-   let imgResult = document.getElementById("file-result").src;
    <!--hide upload image-->
    var preview = document.getElementById("file-preview");
    preview.classList.add('hide');
    <!-- -->
-   if(imgResult != ""){		
-		var result = document.getElementById("file-result");
+   var result = document.getElementById("file-result");
+   result.classList.remove('hide');
+   result.src = preview.src; //replace with detected img
+   var imgResult = result.src;
+   if(preview.src != ""){		
 		dwn = document.querySelector('.download');
 		dwn.download = 'detected-img.png';
 		dwn.setAttribute('href',imgResult);
