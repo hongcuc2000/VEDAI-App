@@ -74,12 +74,12 @@
   function showPreview(event){
    var preview = document.getElementById("file-preview");
    preview.classList.remove('hide');
-    <!--hide result section and result image-->
+  //hide result section and result image
 	var result_section = document.getElementById('result_section');
 	result_section.classList.add('hide');
 	var result = document.getElementById("file-result")
 	result.classList.add('hide');
-	<!-- -->
+	
   if(event.target.files.length > 0){
     var src = URL.createObjectURL(event.target.files[0]);
     preview.src = src;
@@ -89,10 +89,10 @@
 };
 
    function showResult(event){
-   <!--hide upload image-->
+   //hide upload image
    var preview = document.getElementById("file-preview");
    preview.classList.add('hide');
-   <!-- -->
+   
    var result = document.getElementById("file-result");
    result.classList.remove('hide');
    result.src = preview.src; //replace with detected img
