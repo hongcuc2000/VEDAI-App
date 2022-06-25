@@ -1,91 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <!-- basic -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- mobile metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <!-- site metas -->
-  <title>VEDAI</title>
-  <!-- bootstrap css -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <!-- style css -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Responsive-->
-  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<!-- body -->
-
-<body>
-  <!-- header section start -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="detect.html">DETECT</a>
-        <a class="nav-item nav-link" href="index.html" style="font-size:26px">VEDAI</a>
-        <a class="nav-item nav-link" href="history.html">HISTORY</a>
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>VEDAI</title>
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <!-- body -->
+   <body>
+      <!-- header section start -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="detect.html">DETECT</a>
+			<a class="nav-item nav-link" href="index.html" style="font-size:26px">VEDAI</a>
+            <a class="nav-item nav-link" href="history.html">HISTORY</a>
+          </div>
+        </div>
+      </nav>
+	  <!-- home section start -->
+	  <div class="home_section">
+        <div class="head-container">
+			<i class="fa fa-caret-left head-left" onclick="history.back()" style="cursor: pointer; font-size:40px"></i>
+			<h1 class="head-center">History detail</h1>
+		</div> 
       </div>
-    </div>
-  </nav>
-  <!-- home section start -->
-  <div class="home_section">
-    <div class="head-container">
-      <i class="fa fa-caret-left head-left" onclick="history.back()" style="cursor: pointer; font-size:40px"></i>
-      <h1 class="head-center">History detail</h1>
-    </div>
-  </div>
-  <!-- home section end -->
-  <!-- history detail section start -->
-  <div class="historydetail_section">
-    <div class="container">
-      <p class="center" style="margin-top:20px; margin-bottom:0px;">Initial image</p>
-      <a class="btn download" id="initial-btn" onclick="downloadImage('initial')">Download</a>
-      <img class="initial-img" id="initial-img" src="https://i.imgur.com/H4RgQ6t.jpg" />
-      <canvas class="hide" id="initial-canvas"></canvas>
+	  <!-- home section end -->
+      <!-- history detail section start -->
+	  <div class="historydetail_section">
+		<div class="container">
+			<p class="center" style="margin-top:20px; margin-bottom:0px;">Initial image</p>
+			<a class="btn download" id="initial-btn" onclick="downloadImage('initial')">Download</a>
+			<img class="initial-img" id="initial-img" 
+			src="https://i.imgur.com/H4RgQ6t.jpg"/>
+			<canvas class="hide" id="initial-canvas"></canvas>
+			
+			<p class="center" style="margin-top:20px; margin-bottom:0px;">Detected image</p>
+			<a class="btn download" id="detected-btn" onclick="downloadImage('detected')">Download</a>
+			<img class="detected-img" id="detected-img" src="https://i.imgur.com/aatsryM.jpg"/>
+			<canvas class="hide" id="detected-canvas"></canvas>
+		</div>
+      </div>
+	  <!-- history detail section end -->
+   <!-- Javascript files-->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.0.0.min.js"></script>
+   <script src="js/plugin.js"></script>
+   <!-- javascript --> 
+   <script type="text/javascript">
+   let download = function(type){
+		let link = document.createElement('a');
+		link.download = type + "-img.png";
+		link.href = document.getElementById(type + "-canvas").toDataURL()
+		link.click();
+   }
 
-      <p class="center" style="margin-top:20px; margin-bottom:0px;">Detected image</p>
-      <a class="btn download" id="detected-btn" onclick="downloadImage('detected')">Download</a>
-      <img class="detected-img" id="detected-img" src="https://i.imgur.com/aatsryM.jpg" />
-      <canvas class="hide" id="detected-canvas"></canvas>
-    </div>
-  </div>
-  <!-- history detail section end -->
-  <!-- Javascript files-->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/jquery-3.0.0.min.js"></script>
-  <script src="js/plugin.js"></script>
-  <!-- javascript -->
-  <script type="text/javascript">
-    let download = function (type) {
-      let link = document.createElement('a');
-      link.download = type + "-img.png";
-      link.href = document.getElementById(type + "-canvas").toDataURL()
-      link.click();
-    }
-
-    function downloadImage(type) {
-      let img = new Image();
-      img.src = document.getElementById(type + "-img").src;
-      img.setAttribute("crossorigin", "anonymous");
-      img.addEventListener("load", function () {
-        let canvas = document.getElementById(type + "-canvas");
-        canvas.width = this.width;
-        canvas.height = this.height;
-        let ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0);
-        download(type);
-      });
-    }
-  </script>
-</body>
-
-</html>
+	function downloadImage(type){
+   let img = new Image();
+   img.src = document.getElementById(type + "-img").src;
+   img.setAttribute("crossorigin", "anonymous");
+   img.addEventListener("load", function() {
+   let canvas = document.getElementById(type + "-canvas");
+		canvas.width = this.width;
+		canvas.height = this.height;
+		let ctx = canvas.getContext("2d");
+		ctx.drawImage(img, 0, 0);
+		download(type);
+   });}
+	</script>
+   </body>
+   </html>
