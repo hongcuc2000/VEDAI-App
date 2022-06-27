@@ -71,8 +71,9 @@
           Are you sure you want to delete this item?
         </div>
         <div class="modal-footer center" style="margin-bottom:10px">
+          <button type="button" class="btn btn-primary" style="width:90px"
+            onclick="deleteHistoryElement();">Yes</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width:90px">Close</button>
-          <button type="button" class="btn btn-primary" style="width:90px" onclick="showHistory();">Yes</button>
         </div>
       </div>
     </div>
@@ -85,7 +86,6 @@
   <script src="js/plugin.js"></script>
   <!-- javascript -->
   <script type="text/javascript">
-    let default_base64head = "data:image/jpeg;base64,";
     let table = document.getElementById('history_table');
 
     //send GET request to server
@@ -114,15 +114,13 @@
           //Process for column Initial Images
           let row_col1 = document.createElement('td');
           let initial_img_preview = document.createElement('img');
-          let initial_img_base64 = historyElement.initial;
-          let initial_img = dataURLtoFile(default_base64head + initial_img_base64, "initial_" + historyElement.imagename);
+          let initial_img = dataURLtoFile(historyElement.imagetype + "," + historyElement.initial, "initial_" + historyElement.imagename);
           initial_img_preview.src = URL.createObjectURL(initial_img);
           row_col1.appendChild(initial_img_preview);
           //Process for column Detected Images
           let row_col2 = document.createElement('td');
           let detected_img_preview = document.createElement('img');
-          let detected_img_base64 = historyElement.detected;
-          let detected_img = dataURLtoFile(default_base64head + detected_img_base64, "detected_" + historyElement.imagename);
+          let detected_img = dataURLtoFile(historyElement.imagetype + "," + historyElement.detected, "detected_" + historyElement.imagename);
           detected_img_preview.src = URL.createObjectURL(detected_img);
           row_col2.appendChild(detected_img_preview);
           //Process for column Detected time
@@ -139,7 +137,9 @@
           let btn_detail = document.createElement('button');
           btn_detail.id = "detail_" + historyElement.imagename;
           btn_detail.onclick = function () {
-            console.log(btn_detail.id);
+            let xhr_det = new XMLHttpRequest();
+            xhr_det.open("GET", "http://192.168.20.166:8080/selected?imagename=" + btn_detail.id.substring(7, btn_detail.id.length));
+            xhr_det.send();
           };
           btn_detail.style = "margin:5px;";
           btn_detail.type = "button";
@@ -153,7 +153,9 @@
           //Process for button delete in column Action
           btn_delete.id = "delete_" + historyElement.imagename;
           btn_delete.onclick = function () {
-            console.log(btn_delete.id);
+            let xhr_del = new XMLHttpRequest();
+            xhr_del.open("GET", "http://192.168.20.166:8080/selected?imagename=" + btn_delete.id.substring(7, btn_delete.id.length));
+            xhr_del.send();
           };
           btn_delete.style = "margin:5px;";
           btn_delete.type = "button";
@@ -187,6 +189,18 @@
           u8arr[n] = bstr.charCodeAt(n);
         }
         return new File([u8arr], filename, { type: mime });
+      }
+    }
+
+    //Delete
+    function deleteHistoryElement() {
+      let xhr_delete = new XMLHttpRequest();
+      xhr_delete.open("GET", "http://192.168.20.166:8080/delete");
+      xhr_delete.send();
+      xhr_delete.onreadystatechange = function () {
+        if (xhr_delete.readyState === 4 && xhr_delete.status === 200) {
+          window.location.reload()
+        }
       }
     }
   </script>

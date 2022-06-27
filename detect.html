@@ -136,6 +136,7 @@
       let xhr = new XMLHttpRequest();
       xhr.open("POST", "http://192.168.20.166:8080/upload", true);
       let data = new FormData();
+      data.append('imagetype', input_img_base64.split(",")[0]);
       data.append('imagebase64', input_img_base64.split(",")[1]);
       data.append('imagename', input_img_name)
       xhr.onreadystatechange = function () {
