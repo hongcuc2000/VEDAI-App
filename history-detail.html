@@ -38,7 +38,7 @@
   <!-- home section start -->
   <div class="home_section">
     <div class="head-container">
-      <i class="fa fa-caret-left head-left" onclick="history.back()" style="cursor: pointer; font-size:40px"></i>
+      <i class="fa fa-caret-left head-left" onclick="backToHistory()" style="cursor: pointer; font-size:40px"></i>
       <h1 class="head-center">History detail</h1>
     </div>
   </div>
@@ -118,6 +118,11 @@
         u8arr[n] = bstr.charCodeAt(n);
       }
       return new File([u8arr], filename, { type: mime });
+    }
+
+    function backToHistory()
+    {
+      window.location.replace("history.html");
     }
   </script>
 </body>

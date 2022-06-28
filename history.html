@@ -133,13 +133,18 @@
           row_col4.appendChild(a_detail);
           row_col4.appendChild(btn_delete);
           //Process for button detail in column Action
-          a_detail.href = "history-detail.html";
+          //a_detail.href = "history-detail.html";
           let btn_detail = document.createElement('button');
           btn_detail.id = "detail_" + historyElement.imagename;
           btn_detail.onclick = function () {
             let xhr_det = new XMLHttpRequest();
             xhr_det.open("GET", "http://192.168.20.166:8080/selected?imagename=" + btn_detail.id.substring(7, btn_detail.id.length));
             xhr_det.send();
+            xhr_det.onreadystatechange = function () {
+              if (xhr_det.readyState === 4 && xhr_det.status === 200) { 
+                window.location.replace("history-detail.html");
+              }
+            }
           };
           btn_detail.style = "margin:5px;";
           btn_detail.type = "button";
