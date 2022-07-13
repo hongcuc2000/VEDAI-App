@@ -29,6 +29,10 @@ pip install -v -e .  # or "python setup.py develop"
 ```
 - Download and upload [demo.py](https://drive.google.com/file/d/1k4ahEhTAH0XXiCfdLKFaimQ-LZoBysA0/view?usp=sharing), [config](https://drive.google.com/file/d/1gZHoNqo2q_9AyqI3F6Fj6MQO_ajbuNfK/view?usp=sharing), [checkpoint](https://drive.google.com/file/d/1I7N8BG20jTtyxFaQI5OyYPo_N95aPxKu/view?usp=sharing) files to server.
 - Update the directory of demo_path (folder contains demo.py directory), input_path, output_path, config_file, checkpoint_file in demo.py.
+- Run server
+```
+python demo.py
+```
 ### Update Client
 - Clone the project.
 - Update the Server IP and Port of the url in detect.html, history.html, history-detail.html.
