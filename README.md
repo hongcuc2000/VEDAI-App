@@ -7,7 +7,7 @@ The app server are built only for UIT private network.
 - For UIT, connect to UIT private network before using the app. (Refer to [UIT private network connection guide](https://phongdl.uit.edu.vn/su-dung-openvpn) for remote connection)
 - If you are not studying/working at UIT, please install your own server and update the Server IP to try.
 
-## Server installation (for non-UIT only)
+## Installation (for non-UIT)
 - Install Flask
 ```
 pip install Flask
@@ -26,6 +26,8 @@ cd mmdetection # The MMDetection directory
 pip install -r requirements/build.txt
 pip install -v -e .  # or "python setup.py develop"
 ```
+- Download and upload [demo.py](https://drive.google.com/file/d/1k4ahEhTAH0XXiCfdLKFaimQ-LZoBysA0/view?usp=sharing), [config](), [checkpoint]() files to server.
+- Update the directory of input_path, output_path, config_file, checkpoint_file in demo.py.
 ## Reference
 - Feng, C., Zhong, Y., Gao, Y., Scott, M. R., & Huang, W. (2021, October). Tood: Task-aligned one-stage object detection. In 2021 IEEE/CVF International Conference on Computer Vision (ICCV) (pp. 3490-3499). IEEE Computer Society.
 - Du, D., Qi, Y., Yu, H., Yang, Y., Duan, K., Li, G., ... & Tian, Q. (2018). The unmanned aerial vehicle benchmark: Object detection and tracking. In Proceedings of the European conference on computer vision (ECCV) (pp. 370-386).
