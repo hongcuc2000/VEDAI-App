@@ -9,16 +9,16 @@ The app server are built only for UIT private network.
 
 ## Installation (for non-UIT)
 ### Install Server
-- Install Flask
-```
-pip install Flask
-pip install Flask-Cors
-```
 - Prepare environment
 ```
 conda create -n openmmlab python=3.7 -y
 conda activate openmmlab
 conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=11.0 -c pytorch
+```
+- Install Flask
+```
+pip install Flask
+pip install Flask-Cors
 ```
 - Download and install [MMDetection V2.22.0](https://github.com/open-mmlab/mmdetection/releases/tag/v2.22.0) (Refer to [MMDetection V2.22.0 documentation](https://mmdetection.readthedocs.io/en/v2.22.0/get_started.html#installation)).
 ```
