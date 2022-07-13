@@ -1,5 +1,5 @@
 # VEDAI - Vehicle Detection in Aerial Images
-- A demo application for graduation thesis about vehicle detection in aerial images.
+- A demo application for UIT graduation thesis about vehicle detection in aerial images.
 - The detector is the [TOOD](https://drive.google.com/drive/folders/1OCSTrmViOpQNXB_DlmqoDTdVtlupLBO5?usp=sharing) model that using [UAVDT](https://sites.google.com/view/grli-uavdt/%E9%A6%96%E9%A1%B5) detection dataset for training.
 
 ## Note
